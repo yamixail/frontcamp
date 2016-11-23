@@ -74,13 +74,15 @@ class NewsList {
   }
 
   fetchNews(callback) {
-    const url = new URL('https://newsapi.org/v1/articles');
-
-    url.searchParams.append('source', this.options.source);
-    url.searchParams.append('sortBy', 'top');
-    url.searchParams.append('apiKey', '1572bab4c54248c483304c26bfa71b8e');
-
-    return fetch(url)
+    const url = 'https://newsapi.org/v1/articles';
+    const params = {
+      source: this.options.source,
+      sortBy: 'top',
+      apiKey: '1572bab4c54248c483304c26bfa71b8e'
+    };
+    const queryString = params.keys().map(key => `${key}=${params[key]}`).join('&');
+    
+    return fetch(`${url}?${queryString}`)
       .then(response => response.json())
       .then(callback)
       .catch(console.log);
