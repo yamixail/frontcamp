@@ -80,12 +80,12 @@ class NewsList {
       sortBy: 'top',
       apiKey: '1572bab4c54248c483304c26bfa71b8e'
     };
-    const queryString = params.keys().map(key => `${key}=${params[key]}`).join('&');
+    const queryString = Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
     
     return fetch(`${url}?${queryString}`)
       .then(response => response.json())
       .then(callback)
-      .catch(console.log);
+      .catch(console.error);
   }
   
   addNews(news) {
@@ -93,7 +93,7 @@ class NewsList {
   }
 
   getNewsListFragment() {
-    const fragment = new DocumentFragment();
+    const fragment = document.createDocumentFragment();
 
     this.list.forEach(news => {
       fragment.appendChild(new NewsItem(news));
