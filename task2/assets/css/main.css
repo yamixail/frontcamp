@@ -1,0 +1,14 @@
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.hacker-tnews-list .item {
+  margin-bottom: 40px;
+}
+.hacker-news-list .item img {
+  max-width: 600px;
+}
+.hacker-news-list .item span {
+  padding-right: 10px;
+}

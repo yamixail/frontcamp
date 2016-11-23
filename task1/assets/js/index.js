@@ -94,9 +94,13 @@ class HackerNews {
   }
 }
 
-const myNews = new HackerNews('news-list');
+function onDOMReady() {
+  const myNews = new HackerNews('news-list');
 
-myNews.fetchNews(response => {
-  myNews.addNews(response.articles);
-  myNews.generateNewsList();
-});
+  myNews.fetchNews(response => {
+    myNews.addNews(response.articles);
+    myNews.generateNewsList();
+  });
+ }
+ 
+ document.addEventListener("DOMContentLoaded", onDOMReady); 
