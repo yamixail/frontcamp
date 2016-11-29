@@ -1,4 +1,5 @@
 import '../assets/less/main.less';
+
 import NewsList from './NewsList';
 
 export class HackerNews extends NewsList {

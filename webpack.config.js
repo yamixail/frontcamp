@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
@@ -7,7 +7,7 @@ module.exports = {
   entry: ['babel-polyfill', 'whatwg-fetch', './src/app.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: '/frontcamp/',
     filename: 'bundle.js',
   },
   
@@ -32,14 +32,14 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        drop_console: true,
-        dead_code: true,
-      },
-      output: { comments: false },
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //     drop_console: true,
+    //     dead_code: true,
+    //   },
+    //   output: { comments: false },
+    // }),
   ],
   
   resolve: {
