@@ -1,0 +1,39 @@
+{
+  "name": "frontcamp",
+  "version": "1.0.0",
+  "description": "[FrontCamp]",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamixail/frontcamp.git"
+  },
+  "keywords": [
+    "frontcamp",
+    "yamixail"
+  ],
+  "author": "Mikhail Yamayeu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yamixail/frontcamp/issues"
+  },
+  "homepage": "https://github.com/yamixail/frontcamp#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.2"
+  }
+}

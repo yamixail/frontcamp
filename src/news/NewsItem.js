@@ -1,6 +1,4 @@
-'use strict';
-
-class NewsItem {
+export default class NewsItem {
   constructor(news) {
     const newsItem = document.createElement('div');
     newsItem.classList.add('item');
@@ -61,61 +59,3 @@ class NewsItem {
     return Object.assign(document.createElement(tagName), attrs);
   }
 }
-
-class NewsList {
-  constructor(options) {
-    const defaults = {
-      list: [],
-      source: 'bbc-news'
-    };
-    
-    this.options = Object.assign({}, options, defaults);
-    this.list = this.options.list;
-  }
-
-  fetchNews(callback) {
-    const url = 'https://newsapi.org/v1/articles';
-    const params = {
-      source: this.options.source,
-      sortBy: 'top',
-      apiKey: '1572bab4c54248c483304c26bfa71b8e'
-    };
-    const queryString = Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
-    
-    return fetch(`${url}?${queryString}`)
-      .then(response => response.json())
-      .then(callback)
-      .catch(console.error);
-  }
-  
-  addNews(news) {
-    this.list = this.list.concat(news);
-  }
-
-  getNewsListFragment() {
-    const fragment = document.createDocumentFragment();
-
-    this.list.forEach(news => {
-      fragment.appendChild(new NewsItem(news));
-    });
-
-    return fragment;
-  }
-}
-
-class HackerNews extends NewsList {
-  constructor(containerClass) {
-    super({ source: 'hacker-news' });
-  }
-
-  showList(container) {
-    this.fetchNews(response => {
-      this.addNews(response.articles);
-      container.appendChild(this.getNewsListFragment());
-    });
-  }
-}
-
-const myNews = new HackerNews();
-
-myNews.showList(document.getElementsByClassName('hacker-news-list')[0]);
