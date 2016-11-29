@@ -7,7 +7,7 @@ module.exports = {
   entry: ['babel-polyfill', 'whatwg-fetch', './src/app.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/frontcamp/',
+    publicPath: '/frontcamp/dist/',
     filename: 'bundle.js',
   },
   
