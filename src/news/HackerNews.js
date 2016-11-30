@@ -1,4 +1,4 @@
-import '../assets/less/main.less';
+import './news.less';
 
 import NewsList from './NewsList';
 
