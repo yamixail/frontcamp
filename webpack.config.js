@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: '../index.html',
-      template: path.join(__dirname, 'template.html'),
+      template: path.join(__dirname, 'src/index.html'),
     }),
     new ExtractTextPlugin('bundle.css'),
     new webpack.NoErrorsPlugin(),
@@ -43,7 +43,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        drop_console: true,
+        // drop_console: true,
         dead_code: true,
       },
       output: { comments: false },

@@ -1,3 +1,4 @@
+import Request from '../utils/Request';
 import NewsItem from './NewsItem';
 
 export default class NewsList {
@@ -20,8 +21,7 @@ export default class NewsList {
     };
     const queryString = Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
     
-    return fetch(`${url}?${queryString}`)
-      .then(response => response.json())
+    return Request.getData(`${url}?${queryString}`)
       .then(callback)
       .catch(console.error);
   }

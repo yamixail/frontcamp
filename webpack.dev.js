@@ -9,10 +9,11 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
   output: {
     publicPath: '/'
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, 'template.html'),
+      template: path.join(__dirname, 'src/index.html'),
     }),
   ]
 });
