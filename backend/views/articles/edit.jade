@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  .wrapper
+    h1 #{title}
+        
+    form(method="PUT" action="/article/#{article._id}/edit")
+      input(type="text", value="#{article.title}" name="title", placeholder="title")
+      br
+      input(type="text", value="#{article.description}", name="description", placeholder="description")
+      br
+      input(type="text", value="#{article.author}", name="author", placeholder="author")
+      br
+      input(type="text", value="#{article.url}", name="url", placeholder="url")
+      br
+      input(type="text", value="#{article.urlToImage}", name="urlToImage", placeholder="urlToImage")
+      br
+      input(type="date", value="#{new Date(article.publishedAt).toISOString().substr(0, 10)}", name="publishedAt", placeholder="publishedAt")
+      br
+      button(type="submit") save

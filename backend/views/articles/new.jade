@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  .wrapper
+    h1 #{title}
+        
+    form(method="POST" action="/article/new")
+      input(type="text", name="title", placeholder="title")
+      br
+      input(type="text", name="description", placeholder="description")
+      br
+      input(type="text", name="author", placeholder="author")
+      br
+      input(type="text", name="url", placeholder="url")
+      br
+      input(type="text", name="urlToImage", placeholder="urlToImage")
+      br
+      input(type="date", name="publishedAt", placeholder="publishedAt")
+      br
+      button(type="submit") save

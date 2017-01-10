@@ -1,17 +1,16 @@
-var express = require('express'),
+const express = require('express'),
     path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
 
-var db = require('./model/db');
-// var blob = require('./model/blobs');
+const indexRoute = require('./routes/index');
+const article = require('./routes/article');
 
-var routes = require('./routes/index');
-// var blobs = require('./routes/blobs');
-var users = require('./routes/users');
+mongoose.connect('mongodb://localhost/frontcamp');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,15 +20,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-// app.use('/blobs', blobs);
-app.use('/users', users);
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.use('/', indexRoute);
+app.use('/article', article);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

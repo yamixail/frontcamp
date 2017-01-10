@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const Article = require('../model/article');
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res, next) => {
+  Article.find({})
+    .then((articles) => {
+      res.render('index', {
+        title: 'Express',
+        articles
+      });
+    })
+    .catch(err => { next(err); });
 });
 
 module.exports = router;
