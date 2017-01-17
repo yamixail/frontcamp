@@ -44,9 +44,3 @@ const server = new WebpackDevServer(compiler, {
   stats: { colors: true }
 });
 server.listen(8080, 'localhost', function() {});
-
-process.on('SIGINT', () => {
-  log('Process interrupted');
-  server.close()
-  process.exit();
-});

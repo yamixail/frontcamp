@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+require('../frontend');
 var app = require('../backend');
 var debug = require('debug')('express-node-mongo-skeleton:server');
 var http = require('http');

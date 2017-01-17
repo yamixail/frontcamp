@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', './src/app.js'],
+  entry: ['babel-polyfill', 'whatwg-fetch', './src/react.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/frontcamp/dist/',
@@ -40,14 +40,14 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        // drop_console: true,
-        dead_code: true,
-      },
-      output: { comments: false },
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //     // drop_console: true,
+    //     dead_code: true,
+    //   },
+    //   output: { comments: false },
+    // }),
   ],
   
   resolve: {
