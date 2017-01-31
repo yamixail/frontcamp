@@ -18,20 +18,20 @@ const clearArticleFields = (article) => {
     }, {});
 };
 
-router.get('/list', (req, res, next) => {
-  Article.find({})
-    .then((articles) => {
-      res.json({ articles });
-    })
-    .catch(err => { next(err); });
-});
-
-router.post('/', (req, res, next) => {
+router.route('/')
+  .get((req, res, next) => {
+    Article.find({})
+      .then((articles) => {
+        res.json(articles.map(article => article._doc));
+      })
+      .catch(err => { next(err); });
+  })
+  .post((req, res, next) => {
     const newArticle = new Article(clearArticleFields(req.body));
     newArticle.save(function (err, article) {
       if (err) return next(err);
 
-      res.json({ success: true, id: article._id });
+      res.json(article._doc);
     });
   });
 

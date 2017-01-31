@@ -13,7 +13,7 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, 'src/index.html'),
+      template: path.join(__dirname, 'src/angular/index.html'),
     }),
   ]
 });

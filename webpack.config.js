@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', './src/react.js'],
+  // entry: ['babel-polyfill', 'whatwg-fetch', './src/react.js'],
+  entry: ['./src/angular/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/frontcamp/dist/',
@@ -27,6 +28,10 @@ module.exports = {
         test: /\.less$/,
         exclude: /assets/,
         loader: 'style-loader!css-loader!less-loader' //ExtractTextPlugin.extract('style!css!less'),
+      },
+      {
+        test: /\.tpl$/,
+        loader: 'raw-loader'
       }
     ]
   },
