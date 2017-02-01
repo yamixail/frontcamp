@@ -10,14 +10,18 @@ app.controller(
     articleFactory,
     function ($scope, Article) {
       $scope.articles = [];
+      $scope.showNewArticleForm = false;
+      $scope.toggleNewArticleForm = () => {
+        $scope.showNewArticleForm = !$scope.showNewArticleForm;
+      }
       $scope.save = function () {
         $scope.entry = new Article();
 
         Object.assign($scope.entry, $scope.articleForm);
-        console.log($scope.entry);
 
-        Article.save($scope.entry, function() {
-          console.log(arguments);
+        Article.save($scope.entry, function(article) {
+          $scope.showNewArticleForm = false;
+          $scope.articles.unshift(article);
         });
       };
 

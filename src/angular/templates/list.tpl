@@ -1,7 +1,9 @@
 <div class="hacker-news-list">
   <h1>Articles</h1>
   <p>Articles count: {{articles.length}}</p>
-  <article-form ng-show="true"></article-form>
+  <button ng-hide="showNewArticleForm" ng-click="toggleNewArticleForm()">Show</button>
+  <button ng-show="showNewArticleForm" ng-click="toggleNewArticleForm()">Hide</button>
+  <article-form ng-show="showNewArticleForm"></article-form>
   <div ng-repeat="article in articles" class="item">
       <h3>{{article.title}}</h3>
       <img ng-src="{{article.urlToImage}}" alt="article.title">
