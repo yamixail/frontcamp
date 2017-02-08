@@ -29,6 +29,23 @@ module.exports = function(config) {
     preprocessors: {
       'test/test_index.js': ['webpack']
     },
+    
+    
+    // webpack configuration
+    // karma watches the test entry points
+    // (you don't need to specify the entry option)
+    // webpack watches dependencies
+    webpack: {
+      module: {
+        loaders: [
+          {
+              test: /\.jsx?$/,
+              exclude: /node_modules/,
+              loader: 'babel',
+          },
+        ]
+      },
+    },
 
 
     // test results reporter to use
@@ -51,7 +68,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
