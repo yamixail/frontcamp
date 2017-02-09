@@ -1,3 +1,4 @@
+import '../assets/less/main.less';
 import app from './app';
 import articlesListController from './controllers/list';
 import listTemplate from './templates/list.tpl';
@@ -12,7 +13,7 @@ app.config(
       $routeProvider
         .when('/', {
           template: listTemplate,
-          controller: articlesListController,
+          controller: articlesListController.name,
         })
         .otherwise({
           redirectTo: '/',
